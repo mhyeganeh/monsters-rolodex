@@ -1,4 +1,5 @@
 import { Component } from "react";
+import CardList from "./components/card-list/card-list.component";
 import './App.css';
 
 class App extends Component {
@@ -15,7 +16,7 @@ class App extends Component {
         this.getData();
     };
 
-    getData = () => {
+    getData () {
         fetch('https://jsonplaceholder.typicode.com/users')
             .then(response => response.json())
             .then((users) => {
@@ -46,9 +47,7 @@ class App extends Component {
                        onChange={onSearchChange}
                 />
 
-                {filtered_monsters.map((monster, index) => {
-                    return <h1 key={monster.id}>{index+1}- {monster.name}</h1>
-                })}
+                <CardList monsters={filtered_monsters} />
             </div>
         );
     }
