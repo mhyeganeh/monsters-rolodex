@@ -29,8 +29,12 @@ class App extends Component {
     };
 
     render() {
-        const filtered_monsters = this.state.monsters.filter((monster) => {
-            return monster.name.includes(this.state.searchQuery)
+
+        const {searchQuery, monsters} = this.state;
+        const {onSearchChange} = this;
+
+        const filtered_monsters = monsters.filter((monster) => {
+            return monster.name.includes(searchQuery)
         });
 
         return (
@@ -39,7 +43,7 @@ class App extends Component {
                 <input type="search"
                        className='search-box'
                        placeholder='search monsters...'
-                       onChange={this.onSearchChange}
+                       onChange={onSearchChange}
                 />
 
                 {filtered_monsters.map((monster, index) => {
