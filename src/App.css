@@ -22,3 +22,9 @@ code {
   text-align: center;
   padding: 40px;
 }
+
+h1{
+  color: white;
+  font-size: 3rem;
+  margin-bottom: 30px;
+}
